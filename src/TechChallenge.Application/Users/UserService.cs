@@ -43,7 +43,11 @@ public class UserService(UserManager<User> userManager, IUserStore<User> userSto
         await userStore.SetUserNameAsync(user, request.Email, CancellationToken.None);
         await emailStore.SetEmailAsync(user, request.Email, CancellationToken.None);
         var result = await userManager.CreateAsync(user, request.Password);
-        
-        return !result.Succeeded ? Result.Error<Guid>(new Exception(result.Errors.First().Description)) : Result.Success(user.Id);
+
+        if (!result.Succeeded)
+            return Result.Error<Guid>(new Exception(result.Errors.First().Description));
+
+        await userManager.AddToRoleAsync(user, "User");
+        return Result.Success(user.Id);
     }
 }

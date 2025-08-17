@@ -10,22 +10,22 @@ namespace TechChallenge.Api.Controllers;
 public class UsersController(IUserService service) : BaseController
 {
     [HttpGet]
-    [Authorize]
+    [Authorize("Admin")]
     [Route("{id:Guid}")]
     [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public IActionResult Get(Guid id)
-        => Send(service.Find(id));
+    public async Task<IActionResult> Get(Guid id)
+        => Send(await service.Find(id));
     
     [HttpGet]
-    [Authorize]
+    [Authorize("Admin")]
     [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public IActionResult Get()
-        => Send(service.Find());
+    public async Task<IActionResult> Get()
+        => Send(await service.Find());
     
     [HttpPost]
-    [Authorize]
+    [Authorize("Admin")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Post([FromBody] CreateUserRequest request)

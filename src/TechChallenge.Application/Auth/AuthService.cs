@@ -26,8 +26,9 @@ public class AuthService(SignInManager<User> signInManager, IJwtService jwtServi
         if (!result.Succeeded)
             return Result.Error<LoginDto>(new Exception("User or password is incorrect."));
         
+        var roles = await signInManager.UserManager.GetRolesAsync(user);
        
-        var token = jwtService.Generate(user);
+        var token = jwtService.Generate(user, roles);
         return Result.Success(new LoginDto(token));
     }
 }

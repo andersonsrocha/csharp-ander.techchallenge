@@ -18,7 +18,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Data", "src\T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Api", "src\TechChallenge.Api\TechChallenge.Api.csproj", "{88CA1954-9F1B-48FE-8038-FEEFDA86F85A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - Identity", "4.2 - Identity", "{599FEAB2-D1B5-464C-B9A2-9FB2011270F6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - Security", "4.2 - Security", "{599FEAB2-D1B5-464C-B9A2-9FB2011270F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Security", "src\TechChallenge.Security\TechChallenge.Security.csproj", "{BC48E254-AC22-4E77-AF68-0C5694763C9B}"
 EndProject

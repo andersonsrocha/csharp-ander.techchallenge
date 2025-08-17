@@ -10,7 +10,7 @@ namespace TechChallenge.Api.Controllers;
 public class GamesController(IGameService service) : BaseController
 {
     [HttpGet]
-    [Authorize]
+    [Authorize("User")]
     [Route("{id:Guid}")]
     [ProducesResponseType(typeof(GameDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -19,14 +19,14 @@ public class GamesController(IGameService service) : BaseController
         => Send(service.Find(id));
     
     [HttpGet]
-    [Authorize]
+    [Authorize("User")]
     [ProducesResponseType(typeof(GameDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public IActionResult Get()
         => Send(service.Find());
     
     [HttpPost]
-    [Authorize]
+    [Authorize("Admin")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -34,7 +34,7 @@ public class GamesController(IGameService service) : BaseController
         => await Send(service.CreateAsync(request));
     
     [HttpPut]
-    [Authorize]
+    [Authorize("Admin")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -42,7 +42,7 @@ public class GamesController(IGameService service) : BaseController
         => await Send(service.UpdateAsync(request));
     
     [HttpDelete]
-    [Authorize]
+    [Authorize("Admin")]
     [Route("{id:Guid}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]

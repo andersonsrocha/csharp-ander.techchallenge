@@ -50,5 +50,11 @@ public static class JwtExtension
                     ClockSkew = TimeSpan.Zero
                 };
             });
+
+        services.AddAuthorization(options =>
+        {
+            options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
+            options.AddPolicy("User", policy => policy.RequireRole("Admin", "User"));
+        });
     }
 }

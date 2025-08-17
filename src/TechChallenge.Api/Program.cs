@@ -1,6 +1,7 @@
 using TechChallenge.Api.Configurations;
 using TechChallenge.Application;
 using TechChallenge.Data;
+using TechChallenge.Data.Seeds;
 using TechChallenge.Security;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +23,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.AddSeeds();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

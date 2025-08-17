@@ -4,5 +4,5 @@ namespace TechChallenge.Security;
 
 public interface IJwtService
 {
-    public string Generate(User user);
+    public string Generate(User user, IEnumerable<string> roles);
 }
