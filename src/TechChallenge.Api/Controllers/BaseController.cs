@@ -40,7 +40,6 @@ public class BaseController : ControllerBase
     [NonAction]
     private ObjectResult TreatError(Exception? error) => error switch
     {
-        UnauthorizedAccessException => Unauthorized(error.Message),
         not null => Problem(detail: error.Message, statusCode: (int)HttpStatusCode.BadRequest),
         _ => Problem(statusCode: (int)HttpStatusCode.InternalServerError)
     };

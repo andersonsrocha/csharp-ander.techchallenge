@@ -1,4 +1,5 @@
 using TechChallenge.Api.Configurations;
+using TechChallenge.Api.Middlewares;
 using TechChallenge.Application;
 using TechChallenge.Data;
 using TechChallenge.Data.Seeds;
@@ -15,6 +16,8 @@ builder.Services.AddSecurity(builder.Configuration);
 builder.Services.AddRepositories();
 builder.Services.AddServices();
 
+builder.AddSerilog();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -22,6 +25,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<CorrelationIdMiddleware>();
+app.UseMiddleware<GlobalExceptionMiddleware>();
+app.UseMiddleware<RequestMiddleware>();
 
 app.AddSeeds();
 app.UseHttpsRedirection();
