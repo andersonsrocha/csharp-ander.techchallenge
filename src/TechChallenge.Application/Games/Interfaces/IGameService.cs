@@ -1,8 +1,9 @@
 ﻿using OperationResult;
-using TechChallenge.Domain.Requests.Games;
+using TechChallenge.Application.Games.Commands;
 using TechChallenge.Domain.Dto;
+using TechChallenge.Domain.Interfaces;
 
-namespace TechChallenge.Domain.Interfaces.Services;
+namespace TechChallenge.Application.Games.Interfaces;
 
 public interface IGameService : IService
 {

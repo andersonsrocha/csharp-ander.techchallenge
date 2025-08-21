@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TechChallenge.Domain.Interfaces.Repositories;
+using TechChallenge.Domain.Interfaces;
 using TechChallenge.Domain.Models;
 
 namespace TechChallenge.Data.Repositories;

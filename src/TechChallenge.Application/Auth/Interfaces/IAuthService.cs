@@ -1,8 +1,9 @@
 ﻿using OperationResult;
+using TechChallenge.Application.Auth.Commands;
 using TechChallenge.Domain.Dto;
-using TechChallenge.Domain.Requests.Auth;
+using TechChallenge.Domain.Interfaces;
 
-namespace TechChallenge.Domain.Interfaces.Services;
+namespace TechChallenge.Application.Auth.Interfaces;
 
 public interface IAuthService : IService
 {

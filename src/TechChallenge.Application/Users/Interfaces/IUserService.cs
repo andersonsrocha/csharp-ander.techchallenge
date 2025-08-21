@@ -1,8 +1,8 @@
 ﻿using OperationResult;
+using TechChallenge.Application.Users.Commands;
 using TechChallenge.Domain.Dto;
-using TechChallenge.Domain.Requests.Users;
 
-namespace TechChallenge.Domain.Interfaces.Services;
+namespace TechChallenge.Application.Users.Interfaces;
 
 public interface IUserService : IService
 {

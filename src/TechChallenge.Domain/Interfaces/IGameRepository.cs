@@ -1,5 +1,5 @@
 ﻿using TechChallenge.Domain.Models;
 
-namespace TechChallenge.Domain.Interfaces.Repositories;
+namespace TechChallenge.Domain.Interfaces;
 
 public interface IGameRepository : IRepository<Game>;

@@ -1,4 +1,4 @@
-﻿using Spendly.Domain.Interfaces;
+﻿using TechChallenge.Domain.Interfaces;
 
 namespace TechChallenge.Data;
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TechChallenge.Domain.Interfaces.Services;
-using TechChallenge.Domain.Requests.Auth;
+using TechChallenge.Application.Auth.Commands;
+using TechChallenge.Application.Auth.Interfaces;
 
 namespace TechChallenge.Api.Controllers;
 

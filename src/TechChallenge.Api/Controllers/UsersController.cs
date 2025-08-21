@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TechChallenge.Application.Users.Commands;
+using TechChallenge.Application.Users.Interfaces;
 using TechChallenge.Domain.Dto;
-using TechChallenge.Domain.Interfaces.Services;
-using TechChallenge.Domain.Requests.Users;
 
 namespace TechChallenge.Api.Controllers;
 

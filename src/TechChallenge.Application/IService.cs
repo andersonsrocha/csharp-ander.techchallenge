@@ -1,3 +1,3 @@
 ﻿namespace TechChallenge.Application;
 
-public class Service : IService;
+public interface IService;

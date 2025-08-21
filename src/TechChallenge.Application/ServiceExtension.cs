@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using TechChallenge.Domain.Interfaces.Services;
 
 namespace TechChallenge.Application;
 

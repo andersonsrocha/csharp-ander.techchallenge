@@ -1,6 +1,6 @@
 ﻿using TechChallenge.Domain.Enums;
 
-namespace TechChallenge.Domain.Requests.Games;
+namespace TechChallenge.Application.Games.Commands;
 
 public class UpdateGameRequest
 {

@@ -22,6 +22,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - Security", "4.2 - Sec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Security", "src\TechChallenge.Security\TechChallenge.Security.csproj", "{BC48E254-AC22-4E77-AF68-0C5694763C9B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 -Test", "5 -Test", "{5CABD876-E909-4C40-B62D-87EC56431E7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Application.Test", "tests\TechChallenge.Application.Test\TechChallenge.Application.Test.csproj", "{FF767726-6012-4AA6-BA7F-35C1FF4EBDFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,7 @@ Global
 		{88CA1954-9F1B-48FE-8038-FEEFDA86F85A} = {EDD72997-8216-470A-BEAF-A19CC9D9E4A3}
 		{599FEAB2-D1B5-464C-B9A2-9FB2011270F6} = {DF505C9C-8401-48C5-870E-BAEC94DEF166}
 		{BC48E254-AC22-4E77-AF68-0C5694763C9B} = {599FEAB2-D1B5-464C-B9A2-9FB2011270F6}
+		{FF767726-6012-4AA6-BA7F-35C1FF4EBDFA} = {5CABD876-E909-4C40-B62D-87EC56431E7E}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8F4E1F3F-37AA-4167-89E5-2F219E71061D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -57,5 +62,9 @@ Global
 		{BC48E254-AC22-4E77-AF68-0C5694763C9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC48E254-AC22-4E77-AF68-0C5694763C9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC48E254-AC22-4E77-AF68-0C5694763C9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF767726-6012-4AA6-BA7F-35C1FF4EBDFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF767726-6012-4AA6-BA7F-35C1FF4EBDFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF767726-6012-4AA6-BA7F-35C1FF4EBDFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF767726-6012-4AA6-BA7F-35C1FF4EBDFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

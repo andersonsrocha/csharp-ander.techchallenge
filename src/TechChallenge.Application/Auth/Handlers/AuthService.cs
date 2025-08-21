@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using OperationResult;
+using TechChallenge.Application.Auth.Commands;
+using TechChallenge.Application.Auth.Interfaces;
 using TechChallenge.Domain.Dto;
-using TechChallenge.Domain.Interfaces.Services;
 using TechChallenge.Domain.Models;
-using TechChallenge.Domain.Requests.Auth;
 using TechChallenge.Security;
 
-namespace TechChallenge.Application.Auth;
+namespace TechChallenge.Application.Auth.Handlers;
 
 public class AuthService(SignInManager<User> signInManager, IJwtService jwtService) : IAuthService
 {

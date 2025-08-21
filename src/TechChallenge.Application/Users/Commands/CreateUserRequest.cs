@@ -1,6 +1,6 @@
 ﻿using TechChallenge.Domain.Models;
 
-namespace TechChallenge.Domain.Requests.Users;
+namespace TechChallenge.Application.Users.Commands;
 
 public class CreateUserRequest
 {

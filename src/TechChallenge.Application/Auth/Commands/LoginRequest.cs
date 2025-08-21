@@ -1,4 +1,4 @@
-﻿namespace TechChallenge.Domain.Requests.Auth;
+﻿namespace TechChallenge.Application.Auth.Commands;
 
 public class LoginRequest
 {

@@ -1,12 +1,11 @@
 ﻿using OperationResult;
-using Spendly.Domain.Interfaces;
+using TechChallenge.Application.Games.Commands;
+using TechChallenge.Application.Games.Interfaces;
 using TechChallenge.Domain.Dto;
-using TechChallenge.Domain.Interfaces.Repositories;
-using TechChallenge.Domain.Interfaces.Services;
+using TechChallenge.Domain.Interfaces;
 using TechChallenge.Domain.Models;
-using TechChallenge.Domain.Requests.Games;
 
-namespace TechChallenge.Application.Games;
+namespace TechChallenge.Application.Games.Handlers;
 
 public class GameService(IGameRepository repository, IUnitOfWork unitOfWork) : IGameService
 {

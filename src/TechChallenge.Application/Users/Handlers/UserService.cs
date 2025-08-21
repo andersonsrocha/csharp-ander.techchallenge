@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 using OperationResult;
+using TechChallenge.Application.Users.Commands;
+using TechChallenge.Application.Users.Interfaces;
 using TechChallenge.Domain.Dto;
-using TechChallenge.Domain.Interfaces.Services;
-using TechChallenge.Domain.Interfaces.Repositories;
+using TechChallenge.Domain.Interfaces;
 using TechChallenge.Domain.Models;
-using TechChallenge.Domain.Requests.Users;
 
-namespace TechChallenge.Application.Users;
+namespace TechChallenge.Application.Users.Handlers;
 
 public class UserService(UserManager<User> userManager, IUserStore<User> userStore, IUserRepository repository) : IUserService
 {
@@ -33,13 +33,17 @@ public class UserService(UserManager<User> userManager, IUserStore<User> userSto
         if (!userManager.SupportsUserEmail)
             throw new NotSupportedException($"{nameof(UserService)} requires a user store with email support.");
 
+        var user = (User)request;
         var emailStore = (IUserEmailStore<User>)userStore;
         var email = request.Email;
         
         if (string.IsNullOrEmpty(email) || !_emailAddressAttribute.IsValid(email))
             return Result.Error<Guid>(new Exception(userManager.ErrorDescriber.InvalidEmail(email).Description));
-
-        var user = (User)request;
+        
+        var passwordIsValid = await userManager.PasswordValidators[0].ValidateAsync(userManager, user, request.Password);
+        if(!passwordIsValid.Succeeded)
+            return Result.Error<Guid>(new Exception(passwordIsValid.Errors.First().Description));;
+            
         await userStore.SetUserNameAsync(user, request.Email, CancellationToken.None);
         await emailStore.SetEmailAsync(user, request.Email, CancellationToken.None);
         var result = await userManager.CreateAsync(user, request.Password);

@@ -1,7 +1,7 @@
 ﻿using TechChallenge.Domain.Enums;
 using TechChallenge.Domain.Models;
 
-namespace TechChallenge.Domain.Requests.Games;
+namespace TechChallenge.Application.Games.Commands;
 
 public class CreateGameRequest
 {
