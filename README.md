@@ -52,31 +52,31 @@
 Comece clonando o repositório `csharp-ander.techchallenge`, executando o comando:
 
 ```bash
-  git clone https://github.com/andersonsrocha/csharp-ander.techchallenge.git
+git clone https://github.com/andersonsrocha/csharp-ander.techchallenge.git
 ```
 
 Agora acesse o projeto usando:
 
 ```bash
-  cd csharp-ander.techchallenge
+cd csharp-ander.techchallenge
 ```
 
 Atualize a string de conexão do banco em `appsettings.json` e realize a restauração dos pacotes:
 
 ```bash
-  dotnet restore
+dotnet restore
 ```
 
 Agora precisaremos aplicar as migrações, para isso acesse a pasta `src` e depois execute o comando:
 
 ```bash
-  dotnet ef database update -p TechChallenge.Data -s TechChallenge.Api
+dotnet ef database update -p TechChallenge.Data -s TechChallenge.Api
 ```
 
 Ainda dentro da pasta `src`, execute o comando abaixo para iniciar a aplicação:
 
 ```bash
-  dotnet run -p TechChallenge.Api
+dotnet run -p TechChallenge.Api
 ```
 
 E por fim poderá acessar a aplicação atráves do link [Documentação](http://localhost:5167/swagger/index.html).
@@ -99,7 +99,7 @@ Para o primeiro acesso utilize as credenciais abaixo:
 Agora para construirmos a aplicação, basta executar o comando abaixo no diretório raiz do projeto:
 
 ```bash
-  dotnet build
+dotnet build
 ```
 
 E por fim, para publicar a aplicação:
@@ -109,7 +109,7 @@ E por fim, para publicar a aplicação:
 > É possível trocar a pasta de destino substituindo `./publish` pelo diretório desejado.
 
 ```bash
-  dotnet publish -c Release -o ./publish
+dotnet publish -c Release -o ./publish
 ```
 
 ## ✨ Características
