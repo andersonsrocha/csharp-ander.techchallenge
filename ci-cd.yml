@@ -63,6 +63,12 @@ stages:
               tags: "$(tag)"
 
           - task: Docker@2
+            displayName: Login no ACR
+            inputs:
+              containerRegistry: 'ACR'
+              command: 'login'
+
+          - task: Docker@2
             displayName: "Publicar imagem Docker"
             condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
             inputs:
