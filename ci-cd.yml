@@ -57,7 +57,7 @@ stages:
             condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
             inputs:
               containerRegistry: "$(dockerRegistryServiceConnection)"
-              repository: "$(appName)"
+              repository: "$(acrName)"
               command: "build"
               Dockerfile: "$(dockerfilePath)"
               tags: "$(tag)"
@@ -73,7 +73,7 @@ stages:
             condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
             inputs:
               containerRegistry: "$(dockerRegistryServiceConnection)"
-              repository: "$(appName)"
+              repository: "$(acrName)"
               command: "push"
               tags: $(tag)
 
