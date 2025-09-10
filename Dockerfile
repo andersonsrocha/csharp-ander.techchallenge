@@ -27,13 +27,6 @@ RUN dotnet publish src/TechChallenge.Api/TechChallenge.Api.csproj -c Release -o 
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
-WORKDIR /app
-
-# Criar non-root user
-RUN groupadd -r appuser && useradd -r -g appuser appuser
-
-# Copiar os arquivos publicados
-COPY --from=build /app/publish .
 
 # Install the agent
 RUN apt-get update && apt-get install -y wget ca-certificates gnupg \
@@ -51,6 +44,14 @@ CORECLR_NEWRELIC_HOME=/usr/local/newrelic-dotnet-agent \
 CORECLR_PROFILER_PATH=/usr/local/newrelic-dotnet-agent/libNewRelicProfiler.so \
 NEW_RELIC_LICENSE_KEY=e20ffdce07272085d33407e1b5408156FFFFNRAL \
 NEW_RELIC_APP_NAME="techchallenge-newrelic"
+
+WORKDIR /app
+
+# Criar non-root user
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+
+# Copiar os arquivos publicados
+COPY --from=build /app/publish .
 
 # Trocar ownership para non-root user
 RUN chown -R appuser:appuser /app
