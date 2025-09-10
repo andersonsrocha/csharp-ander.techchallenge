@@ -8,7 +8,8 @@ variables:
   dockerfilePath: "$(Build.SourcesDirectory)/Dockerfile"
   tag: "$(Build.BuildId)"
 
-pool: Self hosted
+pool:
+  vmImage: ubuntu-latest
 
 stages:
   - stage: Build
