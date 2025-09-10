@@ -92,14 +92,13 @@ stages:
               steps:
                 - task: AzureContainerApps@1
                   inputs:
-                    appSourcePath: "."
                     azureSubscription: "Assinatura para estudantes(07de936b-e0c8-47b8-b15f-3d778712ecb6)"
-                    acrName: "$(acrName)"
-                    acrUsername: "$(acrUsername)"
                     location: "$(location)"
-                    acrPassword: "$(acrPassword)"
                     imageToDeploy: "$(acrLoginServer)/$(acrName):$(tag)"
                     containerAppName: "$(appName)"
                     resourceGroup: "$(resourceGroup)"
                     targetPort: "80"
                   displayName: "Construir e Rodar o Contêiner Docker com a Aplicação .NET"
+
+
+  
