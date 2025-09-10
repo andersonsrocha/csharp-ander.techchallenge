@@ -58,6 +58,6 @@ RUN chown -R appuser:appuser /app
 USER appuser
 
 # Expor a porta
-EXPOSE 80
+EXPOSE 8080
 
 ENTRYPOINT ["dotnet", "TechChallenge.Api.dll"]
