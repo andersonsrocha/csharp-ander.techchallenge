@@ -97,11 +97,11 @@ stages:
                     imageToDeploy: "$(acrLoginServer)/$(acrName):$(tag)"
                     containerAppName: "$(appName)"
                     resourceGroup: "$(resourceGroup)"
-                    targetPort: "80"
+                    targetPort: "8080"
                     environmentVariables: |
-                      ConnectionStrings__TechDb=Host=pgsql-103.postgres.database.azure.com;Port=5432;Database=tech;Username=$(dbUsername);Password=$(dbPassword);SSLMode=Require;TrustServerCertificate=true
-                      Jwt__Issuer=https://$(appName).delightfulbush-724e4803.eastus.azurecontainerapps.io/
-                      Jwt__Audience=https://$(appName).delightfulbush-724e4803.eastus.azurecontainerapps.io/
+                      ConnectionStrings__TechDb="Host=pgsql-103.postgres.database.azure.com;Port=5432;Database=tech;Username=$(dbUsername);Password=$(dbPassword);SSLMode=Require;TrustServerCertificate=true"
+                      Jwt__Issuer="https://$(appName).delightfulbush-724e4803.eastus.azurecontainerapps.io/"
+                      Jwt__Audience="https://$(appName).delightfulbush-724e4803.eastus.azurecontainerapps.io/"
                   displayName: "Construir e Rodar o Contêiner Docker com a Aplicação .NET"
 
 
