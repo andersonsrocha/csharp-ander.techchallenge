@@ -104,5 +104,26 @@ stages:
                       Jwt__Audience="https://$(appName).delightfulbush-724e4803.eastus.azurecontainerapps.io/"
                   displayName: "Construir e Rodar o Contêiner Docker com a Aplicação .NET"
 
+  - stage: Infraestructure
+    displayName: "Implantar Infraestrutura New Relic"
+    dependsOn: Deploy
+    condition: succeeded()
+    jobs:
+      - job: Deploy
+        steps:
+          - script: |
+              docker run \
+              --detach \
+              --name newrelic-infra \
+              --network=host \
+              --cap-add=SYS_PTRACE \
+              --privileged \
+              --pid=host \
+              --volume "/:/host:ro" \
+              --volume "/var/run/docker.sock:/var/run/docker.sock" \
+              --volume "newrelic-infra:/etc/newrelic-infra" \
+              --env NRIA_LICENSE_KEY='$(nrKey)' \
+              newrelic/infrastructure:latest
+          
 
   
