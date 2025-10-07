@@ -23,6 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\tests\TechChallengeUsers.Application.Test\TechChallengeUsers.Application.Test.csproj" />
       <ProjectReference Include="..\TechChallengeUsers.Application\TechChallengeUsers.Application.csproj" />
       <ProjectReference Include="..\TechChallengeUsers.Data\TechChallengeUsers.Data.csproj" />
     </ItemGroup>

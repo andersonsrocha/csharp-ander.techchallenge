@@ -10,7 +10,7 @@ namespace TechChallengeUsers.Api.Controllers;
 public class UsersController(IUserService service, ILogger<UsersController> logger) : BaseController(logger)
 {
     [HttpPost]
-    [Route("SignIn")]
+    [Route("[action]")]
     [ProducesResponseType(typeof(LoginDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> SignIn([FromBody] LoginUserRequest request)

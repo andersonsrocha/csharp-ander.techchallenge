@@ -6,6 +6,7 @@ using TechChallengeUsers.Application.Users.Commands;
 using TechChallengeUsers.Application.Users.Handlers;
 using TechChallengeUsers.Domain.Interfaces;
 using TechChallengeUsers.Domain.Models;
+using TechChallengeUsers.Elasticsearch;
 using TechChallengeUsers.Security;
 
 namespace TechChallengeUsers.Application.Test.Users.Handlers;
@@ -24,11 +25,12 @@ public class UserServiceTest
     private readonly Mock<SignInManager<User>> _signInManager = new(Manager.Object, ContextAccessor.Object, ClaimsFactory.Object, null!, null!, null!, null!);
     private readonly Mock<UserManager<User>> _manager = new(Store.Object, Options, new PasswordHasher<User>(), null!, PasswordValidators, null!, ErrorDescriber, null!, null!);
     private readonly Mock<IJwtService> _jwtService = new();
+    private readonly Mock<IElasticClient<UserLog>> _elasticClient = new();
     private readonly Mock<IUserRepository> _repository = new();
     private readonly UserService _handler;
 
     public UserServiceTest()
-        => _handler = new UserService(_signInManager.Object, _manager.Object, Store.Object, _jwtService.Object, _repository.Object);
+        => _handler = new UserService(_signInManager.Object, _manager.Object, Store.Object, _jwtService.Object, _elasticClient.Object, _repository.Object);
     
     [Fact]
     public async Task Login_WhenNotFoundEmail_ShouldReturnError()

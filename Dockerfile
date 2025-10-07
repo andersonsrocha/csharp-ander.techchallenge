@@ -28,6 +28,9 @@ RUN dotnet publish src/TechChallengeUsers.Api/TechChallengeUsers.Api.csproj -c R
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 
+# Declare the build argument
+ARG NEW_RELIC_LICENSE_KEY
+
 # Install the agent
 RUN apt-get update && apt-get install -y wget ca-certificates gnupg \
 && echo 'deb http://apt.newrelic.com/debian/ newrelic non-free' | tee /etc/apt/sources.list.d/newrelic.list \
@@ -42,7 +45,7 @@ ENV CORECLR_ENABLE_PROFILING=1 \
 CORECLR_PROFILER={36032161-FFC0-4B61-B559-F6C5D41BAE5A} \
 CORECLR_NEWRELIC_HOME=/usr/local/newrelic-dotnet-agent \
 CORECLR_PROFILER_PATH=/usr/local/newrelic-dotnet-agent/libNewRelicProfiler.so \
-NEW_RELIC_LICENSE_KEY=e20ffdce07272085d33407e1b5408156FFFFNRAL \
+NEW_RELIC_LICENSE_KEY=${NEW_RELIC_LICENSE_KEY} \
 NEW_RELIC_APP_NAME="techchallenge-users-newrelic"
 
 WORKDIR /app

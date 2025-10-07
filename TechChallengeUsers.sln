@@ -26,6 +26,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallengeUsers.Security
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallengeUsers.Application.Test", "tests\TechChallengeUsers.Application.Test\TechChallengeUsers.Application.Test.csproj", "{17578CD6-81D1-4563-BE99-E04DA503A717}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.3 - Elasticsearch", "4.3 - Elasticsearch", "{08F168AF-484B-497C-B327-D60FA464998E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallengeUsers.Elasticsearch", "src\TechChallengeUsers.Elasticsearch\TechChallengeUsers.Elasticsearch.csproj", "{B5F76D8A-5978-437C-AED9-775C7EDDB550}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +44,8 @@ Global
 		{10FBE200-4499-41E6-8194-C2122C12051A} = {2C3FC37A-1E3E-4632-9C52-2A8764631271}
 		{F3D82B92-49A0-4AA1-8CC1-8CC230AE44DC} = {B65D5186-5F60-4385-BC26-B4E16A8DE597}
 		{17578CD6-81D1-4563-BE99-E04DA503A717} = {C7FC89C0-C23A-4B62-B2D8-C266AAA0E9BD}
+		{08F168AF-484B-497C-B327-D60FA464998E} = {7178041F-51A2-4D35-8AF7-309A6B35A56D}
+		{B5F76D8A-5978-437C-AED9-775C7EDDB550} = {08F168AF-484B-497C-B327-D60FA464998E}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{533DBB2A-8356-4942-8D76-F1CBC085E240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -66,5 +72,9 @@ Global
 		{17578CD6-81D1-4563-BE99-E04DA503A717}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17578CD6-81D1-4563-BE99-E04DA503A717}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17578CD6-81D1-4563-BE99-E04DA503A717}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5F76D8A-5978-437C-AED9-775C7EDDB550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5F76D8A-5978-437C-AED9-775C7EDDB550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5F76D8A-5978-437C-AED9-775C7EDDB550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5F76D8A-5978-437C-AED9-775C7EDDB550}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\TechChallengeUsers.Domain\TechChallengeUsers.Domain.csproj" />
+      <ProjectReference Include="..\TechChallengeUsers.Elasticsearch\TechChallengeUsers.Elasticsearch.csproj" />
       <ProjectReference Include="..\TechChallengeUsers.Security\TechChallengeUsers.Security.csproj" />
     </ItemGroup>
 

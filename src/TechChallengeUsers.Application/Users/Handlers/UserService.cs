@@ -6,11 +6,12 @@ using TechChallengeUsers.Application.Users.Interfaces;
 using TechChallengeUsers.Domain.Dto;
 using TechChallengeUsers.Domain.Interfaces;
 using TechChallengeUsers.Domain.Models;
+using TechChallengeUsers.Elasticsearch;
 using TechChallengeUsers.Security;
 
 namespace TechChallengeUsers.Application.Users.Handlers;
 
-public class UserService(SignInManager<User> signInManager, UserManager<User> userManager, IUserStore<User> userStore, IJwtService jwtService, IUserRepository repository) : IUserService
+public class UserService(SignInManager<User> signInManager, UserManager<User> userManager, IUserStore<User> userStore, IJwtService jwtService, IElasticClient<UserLog> elastic, IUserRepository repository) : IUserService
 {
     private static readonly EmailAddressAttribute _emailAddressAttribute = new();
 
@@ -75,6 +76,8 @@ public class UserService(SignInManager<User> signInManager, UserManager<User> us
             return Result.Error<Guid>(new Exception(result.Errors.First().Description));
 
         await userManager.AddToRoleAsync(user, "User");
+        await elastic.AddOrUpdate(new UserLog(user.Id, user.Name, email), nameof(UserLog).ToLower());
+        
         return Result.Success(user.Id);
     }
 }
