@@ -62,7 +62,6 @@ stages:
               command: "build"
               Dockerfile: "$(dockerfilePath)"
               tags: "$(tag)"
-              arguments: '--build-arg NEW_RELIC_LICENSE_KEY=$(nrKey)'
 
           - task: Docker@2
             displayName: Login no ACR
@@ -110,6 +109,7 @@ stages:
                       Credentials__Password="$(adminPassword)"
                       ElasticSettings__ApiKey="$(elasticApiKey)"
                       ElasticSettings__CloudId="$(elasticCloudId)"
+                      NEW_RELIC_LICENSE_KEY="$(nrKey)"
                   displayName: "Construir e Rodar o Contêiner Docker com a Aplicação .NET"
 
   - stage: Infraestructure
