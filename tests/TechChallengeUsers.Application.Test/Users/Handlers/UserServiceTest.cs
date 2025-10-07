@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
 using TechChallengeUsers.Application.Users.Commands;
@@ -27,10 +28,11 @@ public class UserServiceTest
     private readonly Mock<IJwtService> _jwtService = new();
     private readonly Mock<IElasticClient<UserLog>> _elasticClient = new();
     private readonly Mock<IUserRepository> _repository = new();
+    private readonly Mock<ILogger<UserService>> _logger = new();
     private readonly UserService _handler;
 
     public UserServiceTest()
-        => _handler = new UserService(_signInManager.Object, _manager.Object, Store.Object, _jwtService.Object, _elasticClient.Object, _repository.Object);
+        => _handler = new UserService(_signInManager.Object, _manager.Object, Store.Object, _jwtService.Object, _elasticClient.Object, _repository.Object, _logger.Object);
     
     [Fact]
     public async Task Login_WhenNotFoundEmail_ShouldReturnError()
